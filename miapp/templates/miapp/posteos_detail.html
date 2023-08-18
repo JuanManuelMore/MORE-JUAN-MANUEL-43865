@@ -1,0 +1,39 @@
+{% extends 'miapp/base.html' %} 
+{% load static %} 
+{% block titulo %}Post{% endblock titulo %} 
+{% block cabecera %}Post{% endblock cabecera %} 
+{% block contenido %}
+<table> 
+    <tr>
+        <td><h2>Post: {{object}}</h2></td>
+    </tr>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titulo</th>
+      <th>Fecha Max</th>
+      <th>Contacto</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>{{ object.id }}</td>
+      <td>{{ object.titulo }}</td>
+      <td>{{ object.desarrollo }}</td>
+      <td>{{ object.fechaSolicitud }}</td>
+      <td>{{ object.email }}</td>
+    </tr>
+
+  </tbody>
+</table>
+<a
+href="{% url 'miapp:posteos_list' %}"
+class="btn btn-danger"
+style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+><i class="fa fa-share fa-sm" title="List Back">Volver</i>
+</a>
+{% endblock contenido %}

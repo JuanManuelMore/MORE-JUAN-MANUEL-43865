@@ -1,0 +1,10 @@
+{% extends 'miapp/base.html' %}
+{%load static%}
+{% block titulo %}Document{% endblock titulo %}
+<{% block cabecera %}<h1 class="display-2 font-weight-bold my-3">Buscar Propuesta mediante su titulo: </h1>{% endblock cabecera %} 
+{% block contenido %} 
+<form>
+        <input type="text" name="titulo" id="titulo">
+        <input type="submit" value="Buscar">
+    </form>
+{% endblock contenido %}
