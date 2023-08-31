@@ -11,7 +11,7 @@ Propuestas
 {% endblock cabecera %}
     
 {% block contenido %}
-<table>
+<table class="table">
     <tr>
         <td width="200"><h2>Propuestas</h2></td>
         <td>
@@ -26,46 +26,40 @@ Propuestas
 <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
+        
         <th>Titulo</th>
-        <th>Desarrollo</th>
-        <th>Contacto</th>
+
         <th>Fecha Max</th>
         <th>Acciones</th>
       </tr>
+      
     </thead>
     <tbody>
-        {% for propuestas in Propuestas %}
+        {% for p in propuestas_list %}
         <tr>
-            <td>{{ propuestas.id }}</td>
-            <td>{{ propuestas.titulo }}</td>
-            <td>{{ propuestas.desarrollo }}</td>
-            <td>{{ propuestas.contacto }}</td>
-            <td>{{ propuestas.fechaSolicitud }}</td>
-        </tr>
-
-        <td>
-                
-            <a href="{% url 'miapp:detail_propuestas' h.id %}"
-            class="btn btn-info">
-            <i class="fa fa-search fa-sm" title="View Record"></i>
-        </a>
-            <a
-            href="{% url 'miapp:update_propuestas' p.id %}"
-            class="btn btn-primary"
-            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-            ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
-            </a>
-            <a
-            href="{% url 'miapp:delete_propuestas' p.id %}"
-            class="btn btn-danger"
-            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-            ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
-            </a>
-        </td>
+            <td>{{ p.titulo }}</td>
+            <td>{{ p.fechaSolicitud }}</td>
+            <td>
+                <a href="{% url 'miapp:detail_propuestas' p.id %}"
+                class="btn btn-primary btn-sm">
+                <i class="fa fa-search fa-sm" title="View Record"></i>
+                   </a>
+                <a
+                href="{% url 'miapp:update_propuestas' p.id %}"
+                class="btn btn-primary btn-sm"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                </a>
+                <a
+                href="{% url 'miapp:delete_propuestas' p.id %}"
+                class="btn btn-primary btn-sm"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                </a>
+            </td>
         </tr>
         {% endfor %}
-</tbody>
+    </tbody>
 </table>
 {% endblock contenido %}
     

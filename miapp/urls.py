@@ -7,19 +7,19 @@ app_name = 'miapp'
 urlpatterns = [
     path('', index, name="inicio"),
 
-    path('clientes/', clientes, name="clientes"),
+    path('clientes/', ClientesList.as_view(), name="clientes"),
 
-    path('desarrolladores/', desarrolladores, name="desarrolladores"),
+    path('desarrolladores/', DesarrolladoresList.as_view(), name="desarrolladores"),
 
 
     path('propuestas_form', propuestasForm, name="propuestas_form"),
 
     path('desarrolladores_form', desarrolladoresForm, name="desarrolladores_form"),
 
-    path('clientes_form', clientesForm, name="clientes_Form"),
+    path('clientes_form', clientesForm, name="clientes_form"),
 
     path('buscar_propuesta/', buscarPropuesta, name="buscar_propuesta"),
-    path('buscar_propuesta2/', resultadosPropuesta, name="buscar_propuesta2"),
+    path('resultadosPropuesta/', resultadosPropuesta, name="resultadosPropuesta"),
 
     path('posteos/', PosteosList.as_view(), name="posteos"),
     path('create_posteos/', PosteosCreate.as_view(), name="create_posteos"),

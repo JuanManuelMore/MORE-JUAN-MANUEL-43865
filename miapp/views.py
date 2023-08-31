@@ -19,10 +19,18 @@ def index(request):
     return render(request, "miapp/base.html")
 
 def clientes(request):
-    return render(request, "miapp/clientes.html")
+    ctx={"clientes": Clientes.objects.all()}
+    return render(request, "miapp/clientes.html",ctx)
+
+class ClientesList(LoginRequiredMixin, ListView):
+    model = Clientes
+
+class DesarrolladoresList(LoginRequiredMixin, ListView):
+    model = Desarrolladores
 
 def desarrolladores(request):
-    return render(request, "miapp/desarrolladores.html")
+    ctx={"desarrolladores": Desarrolladores.objects.all()}
+    return render(request, "miapp/desarrolladores.html",ctx)
 
 def propuestas(request):
     ctx={"propuestas": Propuestas.objects.all()}
@@ -123,7 +131,7 @@ class PropuestasCreate(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('miapp:propuestas')    
 
 class PropuestasDetail(LoginRequiredMixin, DetailView):
-    model = Posteos
+    model = Propuestas
 
 class PropuestasUpdate(LoginRequiredMixin, UpdateView):
     model = Propuestas

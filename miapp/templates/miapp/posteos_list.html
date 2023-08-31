@@ -19,40 +19,41 @@
 <table class="table">
   <thead>
     <tr>
-      <th>ID</th>
+
       <th>Titulo</th>
-      <th>Desarrollo</th>
-      <th>Fecha Max</th>
-      <th>Contacto</th>
+
+      <th>Fecha de post</th>
+
       <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
-    {% for h in miapp_posteos %}
+    {% for a in posteos_list %}
     <tr>
-      <td>{{ h.id }}</td>
-      <td>{{ h.titulo }}</td>
-      <td>{{ h.desarrollo }}</td>
-      <td>{{ h.fechaSolicitud }}</td>
-      <td>{{ h.email }}</td>
+
+      <td>{{ a.titulo }}</td>
+
+      <td>{{ a.fechaSolicitud }}</td>
+
 
       <td>
         
-        <a href="{% url 'miapp:detail_posteos' h.id %}"
-         class="btn btn-info">
-          <i class="fa fa-search fa-sm" title="View Record"></i>
+        <a href="{% url 'miapp:detail_posteos' a.id %}"
+        class="btn btn-primary btn-sm"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+        ><i  class="fa fa-search fa-sm" title="View Record"></i>
        </a>
         <a
-          href="{% url 'miapp:update_posteos' p.id %}"
-          class="btn btn-primary"
-          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-          ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+          href="{% url 'miapp:update_posteos' a.id %}"
+          class="btn btn-primary btn-sm"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
         </a>
         <a
-          href="{% url 'miapp:delete_posteos' p.id %}"
-          class="btn btn-danger"
-          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-          ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+          href="{% url 'miapp:delete_posteos' a.id %}"
+          class="btn btn-primary btn-sm"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
         </a>
       </td>
     </tr>
